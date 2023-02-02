@@ -12,12 +12,10 @@ const TodoItemSchema = new mongoose.Schema({
         enum: ['High', 'medium', 'low'],
     },
     dateCreated: {
-        Date,
-        required: true,
+        type: Date
     },
     dueDate: {
         type: Date,
-        required: true,
     },
     completed: {
         type: Boolean,
