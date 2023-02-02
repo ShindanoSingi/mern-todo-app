@@ -1,7 +1,7 @@
-POST http://localhost:5500/api/item
+PUT http://localhost:5500/api/item/63db54a168edbbd97843dd27
 Content-Type: application/json
 
 {
-    "task": "This is the first todo."
-
+    "task": "Shinda",
+    "completed": true
 }

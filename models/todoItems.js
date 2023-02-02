@@ -7,16 +7,12 @@ const TodoItemSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    priority: {
-        type: String,
-        enum: ['High', 'medium', 'low'],
-    },
+    priority: String,
     dateCreated: {
-        type: Date
-    },
-    dueDate: {
         type: Date,
+        default: Date.now
     },
+    dueDate: Date,
     completed: {
         type: Boolean,
         default: false,
