@@ -2,21 +2,28 @@
 const mongoose = require('mongoose');
 
 // create a new Schema
-const TodoItemSchema = new mongoose.Schema({
+const TodoSchema = new mongoose.Schema({
     task: {
         type: String,
         required: true,
     },
-    priority: String,
+    priority: {
+        type: String,
+        enum: ['High', "Medium", "Low"],
+        default: 'Low'
+    },
     dateCreated: {
         type: Date,
         default: Date.now
     },
-    dueDate: Date,
+    dueDate: {
+        type: Date,
+        required: true
+    },
     completed: {
         type: Boolean,
         default: false,
     }
 })
 
-module.exports = mongoose.model("todo", TodoItemSchema)
+module.exports = mongoose.model("todo", TodoSchema)
