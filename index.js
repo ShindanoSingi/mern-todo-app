@@ -20,9 +20,9 @@ mongoose.connect(process.env.DB_CONNECT)
     .then(() => console.log('Database connection established.'))
     .catch(err => console.log(err))
 
-app.use('/', TodoItemsRoute)
+app.use('/', TodoItemsRoute);
 
 app.listen(PORT, () =>
     console.log(`Server connected`)
     // console.log(`Listening on PORT ${PORT}`)
-)
+);
