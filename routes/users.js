@@ -7,8 +7,10 @@ const Todo = models.Todo;
 
 const bcrypt = require("bcryptjs")
 
-// Create a user model
-router.post('/api/user', async (req, res) => {
+
+
+// Register a user
+router.post('/api/register', async (req, res) => {
     const { username, password } = req.body;
 
     try {
@@ -26,6 +28,41 @@ router.post('/api/user', async (req, res) => {
         user = new User({ username, password: hashedPassword });
         await user.save();
         res.status(200).json({ message: "User Created successfully" });
+    }
+
+    catch (err) {
+        console.error(err.message);
+        res.status(500).json("Server Error");
+    }
+}
+)
+
+// Create a user model
+router.post('/api/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        let user = await User.findOne({ username });
+        let pass = await User.findOne({ password });
+
+        res.send({
+            id: user._id.toString(),
+            username: user.username,
+            todos: user.todos
+        })
+
+        //     if (user) {
+        //         return res.status(400).json({
+        //             errors: [{ message: "User already exists", }]
+        //         })
+        //     }
+
+        //     const salt = await bcrypt.genSalt(10);
+        //     const hashedPassword = await bcrypt.hash(password, salt);
+
+        //     user = new User({ username, password: hashedPassword });
+        //     await user.save();
+        //     res.status(200).json({ message: "User Created successfully" });
     }
 
     catch (err) {
