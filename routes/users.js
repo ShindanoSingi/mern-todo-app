@@ -48,7 +48,7 @@ router.post('/api/login', async (req, res) => {
         let user = await User.findOne({ username });
         let pass = await User.findOne({ password });
 
-        if (user) {
+        if (user._id.toString().length > 5) {
             res.send({
                 id: user._id.toString(),
                 username: user.username,
