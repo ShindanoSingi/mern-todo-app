@@ -8,10 +8,7 @@ const Todo = models.Todo;
 
 const bcrypt = require("bcryptjs")
 
-const corsOptions = {
-    origin: ['http://localhost:3000']
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Register a user
 router.post('/api/register', async (req, res) => {
