@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const dotenv = require('dotenv').config();
+const cors = require('cors');
+
 
 // import todo and User models
 const models = require('./models/model')
@@ -17,6 +19,13 @@ app.use(session({
     secret: 'secretKey',
     resave: false,
     saveUninitialized: false
+}));
+
+app.use(cors({
+    credentials: true,
+    preflightContinue: true,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    origin: true
 }));
 
 // Set up the body-parser middleware

@@ -7,7 +7,6 @@ const Todo = models.Todo;
 
 const bcrypt = require("bcryptjs")
 
-
 // Create a user model
 router.post('/api/user', async (req, res) => {
     const { username, password } = req.body;
