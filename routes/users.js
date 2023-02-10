@@ -7,7 +7,12 @@ const models = require('../models/model')
 const User = models.User;
 const Todo = models.Todo;
 
+const app = express();
+
+
 const bcrypt = require("bcryptjs")
+
+app.options('*', cors())
 
 // Register a user
 router.post('/api/register', async (req, res) => {
