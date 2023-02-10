@@ -9,7 +9,7 @@ Content-Type: application/json
 # }
 
 {
-    "username": "Singis",
+    "username": "Singi",
     "password": "Shindano"
 }
 
