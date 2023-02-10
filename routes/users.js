@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const cors = require('cors');
+var cors_proxy = require('cors-anywhere');
 
 // import todo and User models
 const models = require('../models/model')
@@ -7,8 +8,6 @@ const User = models.User;
 const Todo = models.Todo;
 
 const bcrypt = require("bcryptjs")
-
-app.use(cors());
 
 // Register a user
 router.post('/api/register', async (req, res) => {
