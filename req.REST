@@ -1,4 +1,4 @@
-delete http://localhost:5500/api/63e1bb876ff12359cf378c52/todos/63e1f9cf496ad08a943c4dd9
+post http://localhost:5500/login/
 Content-Type: application/json
 
 
@@ -8,13 +8,13 @@ Content-Type: application/json
 #     "completed":false
 # }
 
-# {
-#     "username": "New Username Updated",
-#     "password": "Shindanos"
-# }
-
 {
-    "task": "This is new Updated todo",
-    "priority": "High",
-    "completed":true
+    "username": "Samuel",
+    "password": "$2a$10$74435lbBaShQkGhJGS0ADe2XqpDc5a.AWd4Xxqf69EzhWfGpFnCTS"
 }
+
+# {
+#     "task": "This is new Updated todo",
+#     "priority": "High",
+#     "completed":true
+# }
