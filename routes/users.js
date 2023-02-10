@@ -48,11 +48,17 @@ router.post('/api/login', async (req, res) => {
         let user = await User.findOne({ username });
         let pass = await User.findOne({ password });
 
-        res.send({
-            id: user._id.toString(),
-            username: user.username,
-            todos: user.todos
-        })
+        if (user && pass) {
+            res.send({
+                id: user._id.toString(),
+                username: user.username,
+                todos: user.todos
+            })
+        }
+
+        else {
+            res.send('User not found')
+        }
 
         //     if (user) {
         //         return res.status(400).json({
