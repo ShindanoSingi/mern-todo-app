@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require('mongoose');
+const cors = require('cors');
 const dotenv = require('dotenv').config();
 
 
@@ -12,6 +13,8 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(cors({ origin: '*' }));
 
 // Set up the express-session middleware
 app.use(session({
