@@ -56,9 +56,9 @@ router.post('/api/login', async (req, res) => {
             })
         }
 
-        else {
-            res.send('User not found')
-        }
+        // else {
+        //     res.send('User not found')
+        // }
 
         //     if (user) {
         //         return res.status(400).json({
