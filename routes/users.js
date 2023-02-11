@@ -48,7 +48,7 @@ router.post('/api/login', async (req, res) => {
         let user = await User.findOne({ username });
         let pass = await User.findOne({ password });
 
-        if ((user._id.toString().length > 5) && (pass.length > 5)) {
+        if (user) {
             res.send({
                 id: user._id.toString(),
                 username: user.username,
@@ -119,7 +119,7 @@ router.delete('/api/users/:userId', async (req, res) => {
 
 
 
-// Add a todo
+// routes
 router.post('/api/:userId/todo', async (req, res) => {
     const { task, priority, completed } = req.body;
 
