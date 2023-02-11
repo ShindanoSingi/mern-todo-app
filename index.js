@@ -3,18 +3,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv').config();
 
-
-// import todo and User models
-const models = require('./models/model')
-const User = models.User;
-const Todo = models.Todo;
-
 var session = require('express-session');
 var bodyParser = require('body-parser');
 
 const app = express();
 
-app.use(cors({ origin: '*' }));
+app.use(cors());
 
 // Set up the express-session middleware
 app.use(session({
@@ -25,7 +19,6 @@ app.use(session({
 
 // Set up the body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
 
 app.use(express.json());
 

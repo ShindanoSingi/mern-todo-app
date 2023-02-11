@@ -48,30 +48,13 @@ router.post('/api/login', async (req, res) => {
         let user = await User.findOne({ username });
         let pass = await User.findOne({ password });
 
-        if (user._id.toString().length > 5) {
+        if ((user._id.toString().length > 5) && (pass.length > 5)) {
             res.send({
                 id: user._id.toString(),
                 username: user.username,
                 todos: user.todos
             })
         }
-
-        // else {
-        //     res.send('User not found')
-        // }
-
-        //     if (user) {
-        //         return res.status(400).json({
-        //             errors: [{ message: "User already exists", }]
-        //         })
-        //     }
-
-        //     const salt = await bcrypt.genSalt(10);
-        //     const hashedPassword = await bcrypt.hash(password, salt);
-
-        //     user = new User({ username, password: hashedPassword });
-        //     await user.save();
-        //     res.status(200).json({ message: "User Created successfully" });
     }
 
     catch (err) {
@@ -136,7 +119,7 @@ router.delete('/api/users/:userId', async (req, res) => {
 
 
 
-// routes
+// Add a todo
 router.post('/api/:userId/todo', async (req, res) => {
     const { task, priority, completed } = req.body;
 
